@@ -15,6 +15,12 @@
 * You should have received a copy of the GNU General Public License along with ORB-SLAM3.
 * If not, see <http://www.gnu.org/licenses/>.
 */
+#ifdef __unix__
+# include <unistd.h>
+#elif defined _WIN64
+# include <windows.h>
+#define usleep(x) Sleep(1000 * (x))
+#endif
 
 
 #include<iostream>
